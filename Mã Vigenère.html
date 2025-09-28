@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Mã Vigenère</title>
+    <style>
+        body { font-family: Arial; }
+        input, button { margin: 5px; }
+        #output { color: green; }
+    </style>
+</head>
+<body>
+    <h2>Mã Vigenère</h2>
+    <input type="text" id="text" placeholder="Nhập văn bản">
+    <input type="text" id="key" placeholder="Khóa" value="KEY">
+    <button onclick="encrypt()">Mã hóa</button>
+    <button onclick="decrypt()">Giải mã</button>
+    <p id="output"></p>
+
+    <script>
+        function vigenereShift(text, key, encrypt = true) {
+            key = key.toUpperCase();
+            let j = 0;
+            return text.replace(/[a-zA-Z]/g, c => {
+                const base = c.toUpperCase() === c ? 65 : 97;
+                const kChar = key[j % key.length].toUpperCase().charCodeAt(0) - 65;
+                j++;
+                const shift = encrypt ? kChar : -kChar;
+                return String.fromCharCode((c.charCodeAt(0) - base + shift + 26) % 26 + base);
+            });
+        }
+
+        function encrypt() {
+            const text = document.getElementById('text').value;
+            const key = document.getElementById('key').value;
+            document.getElementById('output').innerText = 'Mã hóa: ' + vigenereShift(text, key);
+        }
+
+        function decrypt() {
+            const text = document.getElementById('text').value;
+            const key = document.getElementById('key').value;
+            document.getElementById('output').innerText = 'Giải mã: ' + vigenereShift(text, key, false);
+        }
+    </script>
+</body>
+</html>

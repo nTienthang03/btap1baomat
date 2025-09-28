@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Mã Hoán vị</title>
+    <style>
+        body { font-family: Arial; }
+        input, button { margin: 5px; }
+        #output { color: green; }
+    </style>
+</head>
+<body>
+    <h2>Mã Hoán vị (Columnar)</h2>
+    <input type="text" id="text" placeholder="Nhập văn bản">
+    <input type="text" id="key" placeholder="Khóa (ví dụ: 3142)" value="3142">
+    <button onclick="encrypt()">Mã hóa</button>
+    <button onclick="decrypt()">Giải mã</button>
+    <p id="output"></p>
+
+    <script>
+        function getKeyOrder(key) {
+            const keyOrder = [];
+            for (let i = 0; i < key.length; i++) {
+                keyOrder.push({val: parseInt(key[i]), idx: i});
+            }
+            keyOrder.sort((a, b) => a.val - b.val);
+            return keyOrder;
+        }
+
+        function transpositionShift(text, key, encrypt = true) {
+            const cols = key.length;
+            const rows = Math.ceil(text.length / cols);
+            let grid = Array.from({length: rows}, () => Array(cols).fill('X'));
+            const keyOrder = getKeyOrder(key);
+            if (encrypt) {
+                let idx = 0;
+                for (let r = 0; r < rows; r++) {
+                    for (let c = 0; c < cols; c++) {
+                        if (idx < text.length) grid[r][c] = text[idx++];
+                    }
+                }
+                let result = '';
+                keyOrder.forEach(p => {
+                    const col = p.idx;
+                    for (let r = 0; r < rows; r++) result += grid[r][col];
+                });
+                return result;
+            } else {
+                const rows = text.length / cols;
+                grid = Array.from({length: rows}, () => Array(cols).fill(' '));
+                let idx = 0;
+                keyOrder.forEach(p => {
+                    const col = p.idx;
+                    for (let r = 0; r < rows; r++) grid[r][col] = text[idx++];
+                });
+                let result = '';
+                for (let r = 0; r < rows; r++) {
+                    for (let c = 0; c < cols; c++) {
+                        if (grid[r][c] !== 'X') result += grid[r][c];
+                    }
+                }
+                return result.replace(/X/g, '');  // Xóa padding nếu cần
+            }
+        }
+
+        function encrypt() {
+            const text = document.getElementById('text').value.toUpperCase().replace(/ /g, '');
+            const key = document.getElementById('key').value;
+            document.getElementById('output').innerText = 'Mã hóa: ' + transpositionShift(text, key);
+        }
+
+        function decrypt() {
+            const text = document.getElementById('text').value.toUpperCase();
+            const key = document.getElementById('key').value;
+            document.getElementById('output').innerText = 'Giải mã: ' + transpositionShift(text, key, false);
+        }
+    </script>
+</body>
+</html>

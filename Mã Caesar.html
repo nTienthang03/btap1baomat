@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Mã Caesar</title>
+    <style>
+        body { font-family: Arial; }
+        input, button { margin: 5px; }
+        #output { color: green; }
+    </style>
+</head>
+<body>
+    <h2>Mã Caesar</h2>
+    <input type="text" id="text" placeholder="Nhập văn bản">
+    <input type="number" id="key" placeholder="Khóa (k)" value="3">
+    <button onclick="encrypt()">Mã hóa</button>
+    <button onclick="decrypt()">Giải mã</button>
+    <p id="output"></p>
+
+    <script>
+        function caesarShift(text, k, encrypt = true) {
+            k = parseInt(k) % 26;
+            if (!encrypt) k = 26 - k;
+            return text.replace(/[a-zA-Z]/g, c => {
+                const base = c.toUpperCase() === c ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
+                return String.fromCharCode((c.charCodeAt(0) - base + k) % 26 + base);
+            });
+        }
+
+        function encrypt() {
+            const text = document.getElementById('text').value;
+            const key = document.getElementById('key').value;
+            document.getElementById('output').innerText = 'Mã hóa: ' + caesarShift(text, key);
+        }
+
+        function decrypt() {
+            const text = document.getElementById('text').value;
+            const key = document.getElementById('key').value;
+            document.getElementById('output').innerText = 'Giải mã: ' + caesarShift(text, key, false);
+        }
+    </script>
+</body>
+</html>
