@@ -35,6 +35,16 @@ Không gian khóa: 25.
 Cách phá mã (mà không cần khóa)
 
 Brute force: Thử tất cả 25 giá trị k và kiểm tra văn bản giải mã có ý nghĩa (phân tích tần suất chữ cái phổ biến như E, T, A trong tiếng Anh).
+<img width="1919" height="1073" alt="image" src="https://github.com/user-attachments/assets/452bab24-a3b2-4466-bb5c-f0f15724c8d5" />
+html
+
+mã hóa 
+
+<img width="1888" height="569" alt="image" src="https://github.com/user-attachments/assets/42712d7b-598a-4435-96ef-23d39ab9b5e5" />
+
+giải mã 
+
+<img width="1212" height="493" alt="image" src="https://github.com/user-attachments/assets/ee23b3dc-1b49-40cd-8a08-7e2383b59569" />
 # 2. Mã Affine (Affine Cipher)
 Tên gọi
 Mã Affine, là một dạng mã hóa tuyến tính, kết hợp nhân và cộng modulo.
@@ -58,6 +68,15 @@ Cách phá mã (mà không cần khóa)
 
 Brute force: Thử tất cả 312 khóa.
 Hoặc phân tích tần suất chữ cái để đoán a và b (ví dụ, ánh xạ chữ cái phổ biến).
+C++
+<img width="1836" height="700" alt="image" src="https://github.com/user-attachments/assets/c4d04118-5d8e-4e34-9a7d-59b0d71a0349" />
+html
+mã hóa 
+<img width="1919" height="634" alt="image" src="https://github.com/user-attachments/assets/5a0f1d6b-671c-49aa-ab80-16971a9461c0" />
+giải mã 
+<img width="1256" height="668" alt="image" src="https://github.com/user-attachments/assets/4f1522bf-d6f3-492a-b41c-83e653f486f8" />
+
+
 # 3. Mã Hoán vị (Permutation Cipher / Transposition Cipher)
 Tên gọi
 Mã Hoán vị, còn gọi là Mã Chuyển vị (Transposition Cipher), ví dụ phổ biến là Columnar Transposition.
@@ -79,6 +98,22 @@ Cách phá mã (mà không cần khóa)
 
 Ước lượng độ dài khóa bằng cách tìm khoảng cách lặp lại.
 Thử sắp xếp cột và kiểm tra văn bản có ý nghĩa.
+C++
+<img width="1830" height="738" alt="image" src="https://github.com/user-attachments/assets/d7435957-16f3-437f-8e45-37024291159d" />
+html 
+mã hóa 
+
+<img width="963" height="412" alt="image" src="https://github.com/user-attachments/assets/3ddaeb32-56d3-47f3-b678-d8043d2ef7cb" />
+
+giải mã 
+<img width="1330" height="559" alt="image" src="https://github.com/user-attachments/assets/a23b59f0-9f5e-4613-82a5-567ab0e836b5" />
+
+C++
+<img width="1817" height="670" alt="image" src="https://github.com/user-attachments/assets/35f827f4-d0fc-40d6-9d47-d6a1844a845d" />
+html 
+
+
+
 # 4 Mã Vigenère (Vigenère Cipher)
 Tên gọi
 Mã Vigenère, là mã đa bảng (polyalphabetic), sử dụng khóa lặp lại.
@@ -99,6 +134,15 @@ Cách phá mã (mà không cần khóa)
 
 Kasiski examination: Tìm độ dài khóa bằng cách tìm khoảng cách lặp lại chuỗi.
 Sau đó, phân tích tần suất từng nhóm để đoán khóa.
+C++
+<img width="1771" height="660" alt="image" src="https://github.com/user-attachments/assets/2a316633-c23d-480c-80dc-44d99db90892" />
+
+HTMl 
+mã hóa 
+<img width="1319" height="508" alt="image" src="https://github.com/user-attachments/assets/15c3e2d7-cae8-48c1-a9ce-7ecea584ee01" />
+giải mã 
+<img width="1532" height="575" alt="image" src="https://github.com/user-attachments/assets/fb7008c6-b0a4-41e7-be7a-26dabb2b226c" />
+
 # 5. Mã Playfair (Playfair Cipher)
 Tên gọi
 Mã Playfair, sử dụng bảng 5x5 chữ cái (kết hợp I/J).
@@ -121,4 +165,16 @@ Cách phá mã (mà không cần khóa)
 Phân tích tần suất cặp chữ cái (digraphs), đoán bảng từ cặp phổ biến như TH, HE.
 
 Cài đặt bằng C++
-#Cách cài đặt code bằng C++ và bằng html+css+javascript
+<img width="1761" height="649" alt="image" src="https://github.com/user-attachments/assets/c248ada8-703d-41af-bea3-1830a6b44e06" />
+html
+mã móa
+<img width="1008" height="364" alt="image" src="https://github.com/user-attachments/assets/c6c30b0a-737d-4d00-b70c-485acdde2bbe" />
+
+giải mã 
+<img width="1055" height="490" alt="image" src="https://github.com/user-attachments/assets/fe2e78e4-ee8a-43bb-a0c1-7bb68eb22902" />
+
+
+
+
+
+
